@@ -18,7 +18,12 @@ def median(values):
     if not values:
         raise ValueError("median of an empty list")
     ordered = sorted(values)
-    return round(ordered[len(ordered) // 2], 2)
+    middle = len(ordered) // 2
+
+    if len(ordered) % 2 == 0:
+        return round((ordered[middle - 1] + ordered[middle]) / 2, 2)
+
+    return round(ordered[middle], 2)
 
 
 def spread(values):
